@@ -35,7 +35,7 @@ fn handle_connection(mut stream: TcpStream) -> Result<()> {
                 let response = tokens[1].replace("/echo/", "");
                 stream.write(format!("HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\nContent-Length: {}\r\n\r\n{}", response.len(), response).as_bytes())?;
             } else {
-                stream.write(b"HTTP/1.1 404 NOT FOUND\r\n\r\n")?;
+                stream.write(b"HTTP/1.1 404 Not Found\r\n\r\n")?;
             }
         }
         _ => {
