@@ -12,14 +12,25 @@ fn main() {
     for stream in listener.incoming() {
         match stream {
             Ok(_stream) => {
+                
                 handle_connection(_stream).unwrap();
             }
             Err(e) => {
                 println!("error: {}", e);
             }
+
+
+
+
+
         }
     }
+
+
 }
+
+
+
 fn handle_connection(mut stream: TcpStream) -> Result<()> {
     println!("Connection established!");
     let mut buffer = [0; 1024];
